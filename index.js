@@ -7,7 +7,7 @@ function convert (input, options) {
   options.outputFormat = options.outputFormat || 'can'
   options.options = options.options || ''
 
-  var command = 'obabel -i' + options.inputFormat + ' -:"' + input + '" -o' + options.outputFormat + ' ' + options.options
+  var command = 'obabel -i' + options.inputFormat  + ' -:"'+ input.join('" -:"') + '" -o' + options.outputFormat + ' ' + options.options
 
   return exec(command).then(function (output) {
     return output.trim()
